@@ -1,6 +1,7 @@
 plugins {
-    kotlin("jvm")
-    id("java")
+    //kotlin("jvm")
+    //id("java")
+    id("kotlin-jvm")
 }
 
 group = "org.example"
