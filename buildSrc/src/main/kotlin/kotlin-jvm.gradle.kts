@@ -2,8 +2,12 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
-    id("java")
     kotlin("jvm")
+}
+
+if (project != rootProject) {
+    project.group = rootProject.group
+    project.version = rootProject.version
 }
 
 repositories {
@@ -19,11 +23,11 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = "17"
 }
 
 tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
-        languageVersion.set(KotlinVersion.KOTLIN_1_5)
+        languageVersion.set(KotlinVersion.KOTLIN_1_8)
     }
 }
